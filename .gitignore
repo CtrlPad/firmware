@@ -1,0 +1,27 @@
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
+
+# platformio
+.pio
+.ccls
+
+# Compiled binaries and temporary files
+*.elf
+*.bin
+*.hex
+*.map
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Release artifacts
+releases/
