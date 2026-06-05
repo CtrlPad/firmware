@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include <ble_keyboard_handler.h>
-#include <display_manager.h>
+#include <bleKeyboardHandler.h>
+#include <displayManager.h>
 #include <gui.h>
 
 void setup() {

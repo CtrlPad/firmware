@@ -1,6 +1,6 @@
 #include <TFT_eSPI.h>
 #include <XPT2046_Touchscreen.h>
-#include <display_manager.h>
+#include <displayManager.h>
 
 // Touchscreen pins
 #define XPT2046_IRQ 36  // T_IRQ

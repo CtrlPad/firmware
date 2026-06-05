@@ -1,11 +1,10 @@
-#include "HardwareSerial.h"
 #include <Arduino.h>
 #include <BLE2902.h>
 #include <BLEDevice.h>
 #include <BLEServer.h>
 #include <BLEUtils.h>
-#include <ble_keyboard_handler.h>
-#include <config_receiver.h>
+#include <bleKeyboardHandler.h>
+#include <configReceiver.h>
 
 #define SERVICE_UUID "a3308e24-786f-40b3-bf31-308875404027"
 #define CHARACTERISTIC_UUID "62148466-62a9-4f65-bc29-2c2e408b8684"

@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
-#include <config_receiver.h>
+#include <configReceiver.h>
 #include <lvgl.h>
 
 extern lv_obj_t *btnMatrix;

@@ -1,6 +1,6 @@
-#include "gui_events.h"
 #include <Arduino.h>
-#include <ble_keyboard_handler.h>
+#include <bleKeyboardHandler.h>
+#include <guiEvents.h>
 #include <lvgl.h>
 
 void clicked(lv_event_t *e) {
