@@ -2,4 +2,4 @@
 #pragma once
 
 void initBLEKeyboard();
-void sendBLENotify(uint32_t message_id); 
+void sendBLENotify(uint32_t message_id);

@@ -18,6 +18,7 @@ devenv.local.yaml
 *.bin
 *.hex
 *.map
+compile_commands.json
 
 # Operating system files
 .DS_Store

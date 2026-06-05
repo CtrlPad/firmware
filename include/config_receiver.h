@@ -1,5 +1,4 @@
 #include <Arduino.h>
 #pragma once
 
-void processIncomingConfig(String jsonConfig); 
-
+void processIncomingConfig(String jsonConfig);
