@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "Mikrofon Mute"
+  },
+  {
+    "id": 1,
+    "name": "Open Discord"
+  },
+  {
+    "id": 2,
+    "name": "Play/Pause"
+  },
+  {
+    "id": 3,
+    "name": "OBS Studio"
+  },
+  {
+    "id": 4,
+    "name": "Discord"
+  },
+  {
+    "id": 5,
+    "name": "Bitwarden"
+  }
+]
