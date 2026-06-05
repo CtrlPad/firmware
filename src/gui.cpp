@@ -19,11 +19,13 @@ LV_FONT_DECLARE(FontAwesome);
 // #define VOLUME_DOWN "\xEF\x80\xA7"
 // #define VOLUME_UP "\xEF\x80\xA8"
 
+lv_obj_t * btnMatrix = NULL;
+
 static const char * btnm_map[] = {"0", "1", "2", "\n", "3", "4", "5", NULL};
 
 void gui()
 {
-    lv_obj_t * btnMatrix = lv_buttonmatrix_create(lv_screen_active());
+    btnMatrix = lv_buttonmatrix_create(lv_screen_active());
     lv_buttonmatrix_set_map(btnMatrix, btnm_map);
     // lv_obj_set_style_text_font(btnMatrix, &FontAwesome, 0);
     lv_obj_set_size(btnMatrix, LV_PCT(100), LV_PCT(100));

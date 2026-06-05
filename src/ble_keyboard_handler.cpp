@@ -4,6 +4,7 @@
 #include <BLEUtils.h>
 #include <BLEServer.h>
 #include <BLE2902.h>
+#include <config_receiver.h>
 
 #define SERVICE_UUID        "a3308e24-786f-40b3-bf31-308875404027"
 #define CHARACTERISTIC_UUID "62148466-62a9-4f65-bc29-2c2e408b8684"
@@ -29,8 +30,7 @@ class MyServerCallbacks : public BLEServerCallbacks {
 class MyCharacteristicCallbacks : public BLECharacteristicCallbacks {
     void onWrite(BLECharacteristic* pChar) override {
         std::string value = pChar->getValue();
-        Serial.print("Received value: ");
-        Serial.println(value.c_str());    
+        processIncomingConfig(value.c_str()); 
     }
 };
 
