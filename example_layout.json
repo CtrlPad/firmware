@@ -1,26 +1,32 @@
 [
   {
     "id": 0,
-    "name": "Mikrofon Mute"
+    "name": "Mute",
+    "icon": "\xEF\x84\xB0"
   },
   {
     "id": 1,
-    "name": "Open Discord"
+    "name": "Volume increase",
+    "icon": "\xEF\x80\xA8"
   },
   {
     "id": 2,
-    "name": "Play/Pause"
+    "name": "Volume decrease",
+    "icon": "\xEF\x80\xA7"
   },
   {
     "id": 3,
-    "name": "OBS Studio"
+    "name": "Open Discord",
+    "icon": "\xEF\x8E\x92"
   },
   {
     "id": 4,
-    "name": "Discord"
+    "name": "Open Spotify",
+    "icon": "\xEF\x86\xBC"
   },
   {
     "id": 5,
-    "name": "Bitwarden"
+    "name": "Open Bitwarden",
+    "icon": "\xEF\x82\x84"
   }
 ]

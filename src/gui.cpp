@@ -12,7 +12,7 @@ LV_FONT_DECLARE(FontAwesome);
 // Volume Down. f027
 // Volume UP: f028
 
-// #define BITWARDEN "\xEF\x82\x84"
+// #define BITWARDEN "\xEF\x82\x84" (UTF-8) => "f084" (Unicode) 
 // #define MUTE "\xEF\x84\xB0"
 // #define SPOTIFY "\xEF\x86\xBC"
 // #define DISCORD "\xEF\x8E\x92"
@@ -27,7 +27,7 @@ void gui()
 {
     btnMatrix = lv_buttonmatrix_create(lv_screen_active());
     lv_buttonmatrix_set_map(btnMatrix, btnm_map);
-    // lv_obj_set_style_text_font(btnMatrix, &FontAwesome, 0);
+    lv_obj_set_style_text_font(btnMatrix, &FontAwesome, 0);
     lv_obj_set_size(btnMatrix, LV_PCT(100), LV_PCT(100));
     lv_obj_align(btnMatrix, LV_ALIGN_CENTER, 0, 0);
     
