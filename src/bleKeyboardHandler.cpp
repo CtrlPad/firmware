@@ -54,12 +54,11 @@ void initBLEKeyboard() {
   pAdvertising->start();
 }
 
-void sendBLENotify(uint32_t messageId) {
+void sendBLENotify(String config) {
   if (deviceConnected) {
-    String messageStr = String(messageId);
-    pCharacteristic->setValue(messageStr.c_str());
+    pCharacteristic->setValue(config.c_str());
     pCharacteristic->notify();
     Serial.print("Notified: ");
-    Serial.println(messageId);
+    Serial.println(config);
   }
 }

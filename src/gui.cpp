@@ -21,12 +21,13 @@ LV_FONT_DECLARE(FontAwesome);
 
 lv_obj_t *btnMatrix = NULL;
 
-static const char *btnm_map[] = {"0", "1", "2", "\n", "3", "4", "5", NULL};
+static const char *btnm_map[] = {"0", "1", "2", "\n",
+                                 "3", "4", "5", NULL}; // Empty Values
 
 void gui() {
   btnMatrix = lv_buttonmatrix_create(lv_screen_active());
   lv_buttonmatrix_set_map(btnMatrix, btnm_map);
-  lv_obj_set_style_text_font(btnMatrix, &FontAwesome, 0);
+  // lv_obj_set_style_text_font(btnMatrix, &FontAwesome, 0);
   lv_obj_set_size(btnMatrix, LV_PCT(100), LV_PCT(100));
   lv_obj_align(btnMatrix, LV_ALIGN_CENTER, 0, 0);
 
