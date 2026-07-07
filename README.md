@@ -8,7 +8,7 @@ The firmware of the ctrlPad is written in PlatformIO.
 ## Table of Content
 
 - [Requirements](#requirements)
-- [Layout](#layout)
+- [Installation](#installation)
 - [Contributing](#contributing)
 - [Development Setup](#development-setup)
 
@@ -20,14 +20,7 @@ The firmware of the ctrlPad is written in PlatformIO.
 - Bluetooth
 - USB Cable
 
-## Layout
-
-The layout is configured over a BLE connection. Once connected to 'ctrlPad-BLE', the JSON string can be sent to the ESP. In the future, this process will be handled by an Elgato-like desktop application.
-
-### Example
-```
-[{"id":0,"name":"Mute","icon":"\uf130"},{"id":1,"name":"Volume increase","icon":"\uf028"},{"id":2,"name":"Volume decrease","icon":"\uf027"},{"id":3,"name":"Open Discord","icon":"\uf392"},{"id":4,"name":"Open Spotify","icon":"\uf1bc"},{"id":5,"name":"Open Bitwarden","icon":"\uf084"}]
-```
+## Installation
 
 ## Development Setup
 
