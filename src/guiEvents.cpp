@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <ArduinoJson.h>
 #include <bleKeyboardHandler.h>
 #include <guiEvents.h>
 #include <lvgl.h>
@@ -19,11 +20,16 @@ void clicked(lv_event_t *e) {
   if (code == LV_EVENT_RELEASED) {
     uint32_t id = lv_buttonmatrix_get_selected_button(obj);
 
-    for (int i = 0; i <= 5; i++) {
-      if (id == i) {
-        sendBLENotify(buttonData[i].exec.c_str());
-        break;
-      }
+    if (id >= 0 && id <= 5) {
+      JsonDocument doc;
+      doc["id"] = buttonData[id].id;
+      doc["name"] = buttonData[id].name;
+      doc["exec"] = buttonData[id].exec;
+      doc["icon"] = buttonData[id].icon;
+
+      String output;
+      serializeJson(doc, output);
+      sendBLENotify(output);
     }
   }
 }
