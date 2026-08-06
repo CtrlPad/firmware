@@ -10,7 +10,7 @@ struct ButtonConfig {
   int id;
   String name;
   String icon;
-  String exec;
+  String action;
 };
 ButtonConfig buttonData[6];
 
@@ -29,7 +29,7 @@ void processIncomingConfig(String jsonConfig) {
     buttonData[i].id = array[i]["id"].as<int>();
     buttonData[i].name = array[i]["name"].as<String>();
     buttonData[i].icon = array[i]["icon"].as<String>();
-    buttonData[i].exec = array[i]["exec"].as<String>();
+    buttonData[i].action = array[i]["action"].as<String>();
   }
 
   dynamicMap[0] = buttonData[0].name.c_str();

@@ -8,7 +8,7 @@ struct ButtonConfig {
   int id;
   String name;
   String icon;
-  String exec;
+  String action;
 };
 
 extern ButtonConfig buttonData[6];
@@ -24,7 +24,7 @@ void clicked(lv_event_t *e) {
       JsonDocument doc;
       doc["id"] = buttonData[id].id;
       doc["name"] = buttonData[id].name;
-      doc["exec"] = buttonData[id].exec;
+      doc["action"] = buttonData[id].action;
       doc["icon"] = buttonData[id].icon;
 
       String output;
