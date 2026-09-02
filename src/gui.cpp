@@ -5,37 +5,46 @@
 
 LV_FONT_DECLARE(FontAwesome);
 
-// bitwarden : f084
-// mute: f130
-// spotify: f1bc
-// discord: f392
-// Volume Down. f027
-// Volume UP: f028
-
-// #define BITWARDEN "\xEF\x82\x84" (UTF-8) => "f084" (Unicode)
-// #define MUTE "\xEF\x84\xB0"
-// #define SPOTIFY "\xEF\x86\xBC"
-// #define DISCORD "\xEF\x8E\x92"
-// #define VOLUME_DOWN "\xEF\x80\xA7"
-// #define VOLUME_UP "\xEF\x80\xA8"
-
-lv_obj_t *btnMatrix = NULL;
-
-static const char *btnm_map[] = {"0", "1", "2", "\n",
-                                 "3", "4", "5", NULL}; // Empty Values
+lv_obj_t *btns[6];
 
 void gui() {
-  btnMatrix = lv_buttonmatrix_create(lv_screen_active());
-  lv_buttonmatrix_set_map(btnMatrix, btnm_map);
-  // lv_obj_set_style_text_font(btnMatrix, &FontAwesome, 0);
-  lv_obj_set_size(btnMatrix, LV_PCT(100), LV_PCT(100));
-  lv_obj_align(btnMatrix, LV_ALIGN_CENTER, 0, 0);
+  lv_obj_t *screen = lv_screen_active();
 
-  lv_obj_set_style_pad_all(btnMatrix, 0, LV_PART_MAIN);
+  static int32_t col_dsc[] = {LV_GRID_FR(1), LV_GRID_FR(1), LV_GRID_FR(1),
+                              LV_GRID_TEMPLATE_LAST};
+  static int32_t row_dsc[] = {LV_GRID_FR(1), LV_GRID_FR(1),
+                              LV_GRID_TEMPLATE_LAST};
 
-  lv_obj_set_style_border_width(btnMatrix, 0, LV_PART_MAIN);
+  lv_obj_remove_flag(screen, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_style_pad_all(screen, 4, 0);
+  lv_obj_set_style_pad_row(screen, 4, 0);
+  lv_obj_set_style_pad_column(screen, 4, 0);
+  lv_obj_set_grid_dsc_array(screen, col_dsc, row_dsc);
 
-  lv_obj_set_style_radius(btnMatrix, 0, LV_PART_MAIN);
+  for (uint8_t i = 0; i < 6; i++) {
+    btns[i] = lv_button_create(screen);
+    lv_obj_set_grid_cell(btns[i], LV_GRID_ALIGN_STRETCH, i % 3, 1,
+                         LV_GRID_ALIGN_STRETCH, i / 3, 1);
 
-  lv_obj_add_event_cb(btnMatrix, clicked, LV_EVENT_ALL, NULL);
+    lv_obj_t *label = lv_label_create(btns[i]);
+    lv_obj_set_align(label, LV_ALIGN_CENTER);
+    lv_label_set_text_fmt(label, "%d", i);
+    lv_obj_add_event_cb(btns[i], clicked, LV_EVENT_CLICKED, NULL);
+  }
+}
+
+void changeBtnLabel(int target, String value) {
+  if (target < 0 || target >= 6 || btns[target] == NULL)
+    return;
+  lv_obj_t *label = lv_obj_get_child(btns[target], 0);
+  if (label == NULL)
+    return;
+  lv_label_set_text(label, value.c_str());
+}
+
+void changeBtnColor(int target, String value) {
+  if (target < 0 || target >= 6 || btns[target] == NULL)
+    return;
+  uint32_t color = strtoul(value.c_str() + 1, NULL, 16);
+  lv_obj_set_style_bg_color(btns[target], lv_color_hex(color), 0);
 }
