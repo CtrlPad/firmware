@@ -1,4 +1,4 @@
-#include "HardwareSerial.h"
+#include "gui.h"
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <configReceiver.h>
@@ -15,8 +15,6 @@ struct ButtonConfig {
   String action;
 };
 ButtonConfig buttonData[6];
-
-static const char *dynamicMap[8];
 
 void processIncomingConfig(String jsonConfig) {
   DeserializationError error = deserializeJson(doc, jsonConfig);
@@ -35,14 +33,8 @@ void processIncomingConfig(String jsonConfig) {
     buttonData[i].action = array[i]["action"].as<String>();
   }
 
-  dynamicMap[0] = buttonData[0].name.c_str();
-  dynamicMap[1] = buttonData[1].name.c_str();
-  dynamicMap[2] = buttonData[2].name.c_str();
-  dynamicMap[3] = "\n";
-  dynamicMap[4] = buttonData[3].name.c_str();
-  dynamicMap[5] = buttonData[4].name.c_str();
-  dynamicMap[6] = buttonData[5].name.c_str();
-  dynamicMap[7] = NULL;
-
-  lv_buttonmatrix_set_map(btnMatrix, dynamicMap);
+  for (int i = 0; i < 6; i++) {
+    changeBtnLabel(i, buttonData[i].name);
+    changeBtnColor(i, buttonData[i].color);
+  }
 }
