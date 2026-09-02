@@ -3,8 +3,6 @@
 #include <guiEvents.h>
 #include <lvgl.h>
 
-LV_FONT_DECLARE(FontAwesome);
-
 lv_obj_t *btns[6];
 
 void gui() {
