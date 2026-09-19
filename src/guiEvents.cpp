@@ -1,17 +1,9 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <bleKeyboardHandler.h>
+#include <configReceiver.h>
 #include <guiEvents.h>
 #include <lvgl.h>
-
-struct ButtonConfig {
-  int id;
-  String name;
-  String icon;
-  String action;
-};
-
-extern ButtonConfig buttonData[6];
 
 void clicked(lv_event_t *e) {
   lv_event_code_t code = lv_event_get_code(e);

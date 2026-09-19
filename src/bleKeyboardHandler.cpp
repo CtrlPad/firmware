@@ -12,6 +12,8 @@
 BLEServer *pServer = nullptr;
 BLECharacteristic *pCharacteristic = nullptr;
 bool deviceConnected = false;
+String pendingConfigJson = "";
+volatile bool configPending = true;
 
 class MyServerCallbacks : public BLEServerCallbacks {
   void onConnect(BLEServer *pServer) {
@@ -30,7 +32,8 @@ class MyServerCallbacks : public BLEServerCallbacks {
 class MyCharacteristicCallbacks : public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic *pChar) override {
     std::string value = pChar->getValue();
-    processIncomingConfig(value.c_str());
+    pendingConfigJson = value.c_str();
+    configPending = true;
   }
 };
 

@@ -2,6 +2,7 @@
 #include <gui.h>
 #include <guiEvents.h>
 #include <lvgl.h>
+#include <configReceiver.h>
 
 lv_obj_t *btns[6];
 
@@ -23,6 +24,9 @@ void gui() {
     btns[i] = lv_button_create(screen);
     lv_obj_set_grid_cell(btns[i], LV_GRID_ALIGN_STRETCH, i % 3, 1,
                          LV_GRID_ALIGN_STRETCH, i / 3, 1);
+
+    icons[i] = lv_image_create(btns[i]);
+    lv_obj_center(icons[i]);
 
     lv_obj_t *label = lv_label_create(btns[i]);
     lv_obj_set_align(label, LV_ALIGN_CENTER);
