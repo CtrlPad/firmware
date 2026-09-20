@@ -5,6 +5,8 @@
 #include <configReceiver.h>
 
 lv_obj_t *btns[6];
+lv_obj_t *icons[6];
+static lv_image_dsc_t iconDescs[6];
 
 void gui() {
   lv_obj_t *screen = lv_screen_active();
@@ -38,7 +40,7 @@ void gui() {
 void changeBtnLabel(int target, String value) {
   if (target < 0 || target >= 6 || btns[target] == NULL)
     return;
-  lv_obj_t *label = lv_obj_get_child(btns[target], 0);
+  lv_obj_t *label = lv_obj_get_child(btns[target], 1);
   if (label == NULL)
     return;
   lv_label_set_text(label, value.c_str());
@@ -49,4 +51,26 @@ void changeBtnColor(int target, String value) {
     return;
   uint32_t color = strtoul(value.c_str() + 1, NULL, 16);
   lv_obj_set_style_bg_color(btns[target], lv_color_hex(color), 0);
+}
+
+void changeIcon(int target, const uint8_t *data, size_t len) {
+  Serial.printf("changeIcon(%d): start\n", target);
+  if (target < 0 || target >= 6 || btns[target] == NULL)
+    return;
+
+  iconDescs[target] = {
+    .header = {
+      .magic = LV_IMAGE_HEADER_MAGIC,
+      .cf = LV_COLOR_FORMAT_A1,
+      .w = 32,
+      .h = 32,
+      .stride = 4, 
+    },
+    .data_size = len,
+    .data = data,
+  };
+
+  Serial.printf("changeIcon(%d): descriptor built, calling lv_image_set_src\n", target);
+  lv_image_set_src(icons[target], &iconDescs[target]);
+  Serial.printf("changeIcon(%d): lv_image_set_src returned\n", target);
 }

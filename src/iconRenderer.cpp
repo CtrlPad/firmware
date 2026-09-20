@@ -18,4 +18,6 @@ static uint8_t *decodeBase64(const String &encoded, size_t &outLen) {
 void renderIcon(int target, String encodedIconString) {
   size_t len;
   uint8_t *pixels = decodeBase64(encodedIconString, len);
+  changeIcon(target, pixels, len);
+  Serial.printf("renderIcon(%d): done\n", target);
 }
