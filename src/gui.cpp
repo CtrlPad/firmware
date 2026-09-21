@@ -26,12 +26,14 @@ void gui() {
     btns[i] = lv_button_create(screen);
     lv_obj_set_grid_cell(btns[i], LV_GRID_ALIGN_STRETCH, i % 3, 1,
                          LV_GRID_ALIGN_STRETCH, i / 3, 1);
+    lv_obj_set_flex_flow(btns[i], LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(btns[i], LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER,
+                          LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_pad_row(btns[i], 2, 0);
 
     icons[i] = lv_image_create(btns[i]);
-    lv_obj_center(icons[i]);
 
     lv_obj_t *label = lv_label_create(btns[i]);
-    lv_obj_set_align(label, LV_ALIGN_CENTER);
     lv_label_set_text_fmt(label, "%d", i);
     lv_obj_add_event_cb(btns[i], clicked, LV_EVENT_CLICKED, NULL);
   }
