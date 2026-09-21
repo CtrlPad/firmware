@@ -29,8 +29,20 @@ void processIncomingConfig(String jsonConfig) {
   }
 
   for (int i = 0; i < 6; i++) {
-    renderIcon(i, buttonData[i].rasterizedIcon);
-    changeBtnLabel(i, buttonData[i].name);
-    changeBtnColor(i, buttonData[i].color);
+    if (buttonData[i].color != "") {
+      changeBtnColor(i, buttonData[i].color);
+    } else {
+      changeBtnColor(i, "#AEC6CF"); 
+    };
+
+    if (buttonData[i].name != "") {
+      changeBtnLabel(i, buttonData[i].name);
+    } else {
+      changeBtnColor(i, "Empty"); 
+    };
+
+    if (buttonData[i].rasterizedIcon != "") {
+      renderIcon(i, buttonData[i].rasterizedIcon);
+    };
   }
 }
