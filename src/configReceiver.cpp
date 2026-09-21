@@ -38,11 +38,13 @@ void processIncomingConfig(String jsonConfig) {
     if (buttonData[i].name != "") {
       changeBtnLabel(i, buttonData[i].name);
     } else {
-      changeBtnColor(i, "Empty"); 
+      changeBtnLabel(i, "Empty"); 
     };
 
     if (buttonData[i].rasterizedIcon != "") {
       renderIcon(i, buttonData[i].rasterizedIcon);
-    };
+    } else {
+      renderIcon(i, "");
+    }
   }
 }
