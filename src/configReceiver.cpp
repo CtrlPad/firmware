@@ -47,5 +47,9 @@ void processIncomingConfig(String jsonConfig) {
     } else {
       renderIcon(i, "");
     }
+
+    if (buttonData[i].iconColor != "") {
+      recolorIcon(i, buttonData[i].iconColor);
+    };
   }
 }

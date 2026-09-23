@@ -76,3 +76,11 @@ void changeIcon(int target, const uint8_t *data, size_t len) {
   lv_image_set_src(icons[target], &iconDescs[target]);
   Serial.printf("changeIcon(%d): lv_image_set_src returned\n", target);
 }
+
+void recolorIcon(int target, String value) {
+  if (target < 0 || target >= 6 || btns[target] == NULL)
+    return;
+
+  uint32_t iconColor = strtoul(value.c_str() + 1, NULL, 16);
+  lv_obj_set_style_image_recolor(icons[target], lv_color_hex(iconColor), LV_PART_MAIN);
+};

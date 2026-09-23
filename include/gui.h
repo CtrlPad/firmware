@@ -9,3 +9,4 @@ void gui();
 void changeBtnLabel(int target, String value);
 void changeBtnColor(int target, String value);
 void changeIcon(int target, const uint8_t *data, size_t len);
+void recolorIcon(int target, String value);
