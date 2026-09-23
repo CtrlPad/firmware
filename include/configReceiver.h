@@ -6,7 +6,7 @@ struct ButtonConfig {
   String name;
   String icon;
   String rasterizedIcon;
-  String color;
+  String buttonColor;
   String action;
 };
 

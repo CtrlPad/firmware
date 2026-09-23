@@ -24,13 +24,13 @@ void processIncomingConfig(String jsonConfig) {
     buttonData[i].id = array[i]["id"].as<int>();
     buttonData[i].name = array[i]["name"].as<String>();
     buttonData[i].rasterizedIcon = array[i]["icon"].as<String>();
-    buttonData[i].color = array[i]["color"].as<String>();
+    buttonData[i].buttonColor = array[i]["buttonColor"].as<String>();
     buttonData[i].action = array[i]["action"].as<String>();
   }
 
   for (int i = 0; i < 6; i++) {
-    if (buttonData[i].color != "") {
-      changeBtnColor(i, buttonData[i].color);
+    if (buttonData[i].buttonColor != "") {
+      changeBtnColor(i, buttonData[i].buttonColor);
     } else {
       changeBtnColor(i, "#AEC6CF"); 
     };

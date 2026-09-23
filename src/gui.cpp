@@ -51,8 +51,8 @@ void changeBtnLabel(int target, String value) {
 void changeBtnColor(int target, String value) {
   if (target < 0 || target >= 6 || btns[target] == NULL)
     return;
-  uint32_t color = strtoul(value.c_str() + 1, NULL, 16);
-  lv_obj_set_style_bg_color(btns[target], lv_color_hex(color), 0);
+  uint32_t buttonColor = strtoul(value.c_str() + 1, NULL, 16);
+  lv_obj_set_style_bg_color(btns[target], lv_color_hex(buttonColor), 0);
 }
 
 void changeIcon(int target, const uint8_t *data, size_t len) {
