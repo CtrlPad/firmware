@@ -25,6 +25,7 @@ void processIncomingConfig(String jsonConfig) {
     buttonData[i].name = array[i]["name"].as<String>();
     buttonData[i].rasterizedIcon = array[i]["icon"].as<String>();
     buttonData[i].buttonColor = array[i]["buttonColor"].as<String>();
+    buttonData[i].iconColor = array[i]["iconColor"].as<String>();
     buttonData[i].action = array[i]["action"].as<String>();
   }
 
