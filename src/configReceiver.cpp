@@ -3,6 +3,7 @@
 #include <ArduinoJson.h>
 #include <configReceiver.h>
 #include <iconRenderer.h>
+#include <configStorage.h>
 #include <lvgl.h>
 
 extern lv_obj_t *btnMatrix;
@@ -16,6 +17,7 @@ void processIncomingConfig(String jsonConfig) {
     Serial.println(error.c_str());
     return;
   }
+  saveConfig(jsonConfig); 
 
   JsonArray array = doc.as<JsonArray>();
 
